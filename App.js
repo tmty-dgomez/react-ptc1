@@ -1,8 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Alert, Button } from 'react-native';
+import { usePreventScreenCapture ,addScreenshotListener} from 'expo-screen-capture';
 import gato from "./assets/gato.jpg";
-
+import * as Permissions from 'expo-permissions';
+import { useEffect } from 'react';
 const App = () => {
+  usePreventScreenCapture();
+  async function getCamareraPermissions(){
+    const { status } = await Permisions.askAsync(
+      Permisions.CAMERA
+    )
+    if(status == 'granted'){
+      addScreenshotListener(() => {
+        alert("you took a screenshot")
+      })
+    }
+  }
+
+  useEffect(()=>{
+    getCamareraPermissions()
+  })
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Puro React Native</Text>
@@ -14,7 +31,7 @@ const App = () => {
         <Button
           onPress={() => Alert.alert("Miau")}
           title="Miau"
-          color="#00"
+          color="#000"
         />
       </View>
     </View>
