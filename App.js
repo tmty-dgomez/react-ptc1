@@ -1,20 +1,49 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image, Alert, Button } from 'react-native';
+import gato from "./assets/gato.jpg";
 
-export default function App() {
+const App = () => {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text style={styles.title}>Puro React Native</Text>
+      <Image
+        source={gato}
+        style={styles.img}
+      />
+      <View style={styles.buttonContainer}>
+        <Button
+          onPress={() => Alert.alert("Miau")}
+          title="Miau"
+          color="#00"
+        />
+      </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#A3E4D7',
   },
+  title: {
+    fontSize: 30,
+    color: 'white',
+    marginBottom: 20,
+  },
+  img: {
+    width: 300,
+    height: 300,
+    borderRadius: 150,
+    marginBottom: 20,
+  },
+  buttonContainer: {
+    backgroundColor: 'black',
+    borderRadius: 10,
+    overflow: 'hidden',
+  }
 });
+
+export default App;
