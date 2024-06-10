@@ -1,8 +1,14 @@
+/*
+Comando de instalacion
+npm install react-native-screenshot-prevent
+npm install expo-screen-capture
+expo install expo-permissions
+*/
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Alert, Button } from 'react-native';
-import { usePreventScreenCapture ,addScreenshotListener} from 'expo-screen-capture';
-import gato from "./assets/gato.jpg";
-import * as Permissions from 'expo-permissions';
+import { usePreventScreenCapture ,addScreenshotListener} from 'expo-screen-capture'; 
+import gato from "./assets/gato.jpg";                                              
+import * as Permissions from 'expo-permissions';                                    
 import { useEffect } from 'react';
 const App = () => {
   usePreventScreenCapture();
